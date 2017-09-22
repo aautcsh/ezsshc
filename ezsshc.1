@@ -1,0 +1,145 @@
+.TH EZSSHC 1 LOCAL
+
+.SH ezsshc
+ezsshc - crude little ssh/scp helper utility
+
+.SH SYNOPSIS
+.B ezsshc <option> <command> ... 	
+.br
+
+.I option
+.br
+
+.B ["
+.I l i a rm b go cp h
+.B ..."] <command>
+.br
+
+.B ./make <option> 	
+.br
+
+.I option
+.br
+
+.B ["
+.I i c
+.B ..."]
+
+.SH AVAILABILITY
+ezsshc is currently available for Mac OS X 10.6+. A generic version for *BSD and Linux is currently under development.
+
+.SH DESCRIPTION
+ezsshc helps you to connect and copy foo to your favourite ssh connections. The essential config file ~/.ezsshcrc is the place you define your connections. 
+Each call to "go", "a" & "rm" will be logged into ~/.ezsshc.log
+
+.SH OPTIONS
+ezsshc options
+
+.TP
+l
+.I (list) <D-x>
+- list all '<connections>' in ~/.ezsshcrc.
+.TP
+i
+.I (info) 
+- <connection>: verbose info.
+.TP
+a
+.I (add) 
+- <name> <ip> <port> <usr> <id>: append connection.
+.TP
+rm
+.I (delete) 
+- <connection>: delete config entry.
+.TP
+b
+.I (backup) 
+- archive configuration (t_stamp=day).
+.TP
+go
+.I (ssh) 
+- <connection>: connect to desired node.
+.TP
+cp
+.I (copy) 
+- <connection> <input> <path>: copy via scp.
+.TP
+h
+.I (help) 
+- print this screen
+.br
+make options
+
+.TP
+i
+.I (install) 
+- Installs ezsshc to /usr/sbin/ezsshc
+.TP
+c
+.I (clean) 
+- Flushes the configuration
+.br
+
+.SH EXAMPLES 
+.br
+Installation & processing example: 
+
+.br
+.B demo$ ./make i
+.I ...
+.br
+
+.B demo$ ezsshc <go> example
+.I ``Connect to desired connection 'example`´
+.br
+
+.B demo$ ezsshc <i> example
+.I Show detailed connection informations
+.br
+.I Example output:
+.br
+.I Name: example
+.br -----------------
+.br	Host: foo.bar.com
+.br	Port: 23
+.br	User: root
+.br	Key:  NULL
+.br
+
+.B ezsshc <a> local 127.0.0.1 23 root ~/local.key
+.I Append a new configuration entry.
+.br
+.I Params:
+.br	1) Connection name
+.br	2) Hostname/IP
+.br	3) Port
+.br	4) User
+.br	5) Private keyfile
+.br
+.SH NOTES
+.I Note:
+You can define the keyfile parameter as NULL. In that case ssh will just connect with your desired username.
+.br		
+
+.I	Example output:
+.br
+.br # local
+.br con_local_name=local
+.br	con_local_ip=127.0.0.1
+.br	con_local_port=23
+.br	con_local_user=root
+.br	con_local_id=~/local.key
+.br
+.br	# ezsshc <rm> local
+.br	Deletes desired configuration entry
+.br	
+.br	# ezsshc <b>
+.br	Backups the configuration file in users home directory with a current timestamp
+		
+.br	Example output:
+
+.br	~/.ezsshcrc_20111101
+.br
+.SH AUTHOR
+Aautcsh, nosrv.org
+

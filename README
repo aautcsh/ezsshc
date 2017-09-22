@@ -1,0 +1,83 @@
+NAME
+	ezsshc -- EazySSH Connector (crude little helper)
+
+SYNOPSIS
+	ezsshc <option> <command> ... 	
+		Options:
+		<l>   (list)		- list all '<connections>' in ~/.ezsshcrc.
+		<i>   (info)		- <connection>: verbose info.
+		<a>   (add)			- <name> <ip> <port> <usr> <id>: append connection.
+		<rm>  (del)			- <connection>: delete config entry.
+		<b>   (backup)	- archive configuration (t_stamp=day).
+		<go>  (ssh)			- <connection>: connect to desired node.
+		<cp>  (copy)		- <connection> <input> <path>: copy via scp.
+		<h>   (help)		- print this screen.
+
+	make	<option>
+		Options:
+		<i>		(install)	- Installs ezsshc to /usr/sbin/ezsshc
+		<c>		(clean) 	- Flushes the configuration
+
+DESCRIPTION
+	ezsshc helps you to connect to you favourite ssh connection. The essential config file ~/.ezsshcrc is the place you define your connections. 
+	Each call to "go", "a" & "rm" will be logged into ~/.ezsshc.log
+	
+	# installation: you have to be root or at least permitted to write to /usr/sbin
+		cd ezsshc
+		./make i
+
+	# ezsshc <go> example
+		Connect to desired connection 'example'
+
+	# ezsshc <l>
+		Show configured connections
+
+	# ezsshc <i> example
+		Show detailed connection informations
+
+		Example output:
+
+		Name: example
+		-----------------
+		Host: foo.bar.com
+		Port: 23
+		User: root
+		Key:  NULL
+
+	# ezsshc <a> local 127.0.0.1 23 root ~/local.key
+		Append a new configuration entry.
+
+		Params:
+		1) Connection name
+		2) Hostname/IP
+		3) Port
+		4) User
+		5) Private keyfile
+
+		Note:
+		You can define the keyfile parameter as NULL. In that case ssh will just connect with your desired username.
+		
+		Example output:
+
+		# local
+		con_local_name=local
+		con_local_ip=127.0.0.1
+		con_local_port=23
+		con_local_user=root
+		con_local_id=~/local.key
+
+	# ezsshc <rm> local
+		Deletes desired configuration entry
+	
+	# ezsshc <b>
+		Backups the configuration file in users home directory with a current timestamp
+		
+		Example output:
+
+		~/.ezsshcrc_20111101
+
+VERSION INFO
+	0.8.5-p2 - 2012-03-18
+
+AUTHOR
+	<aautcsh@nosrv.org>

@@ -1,0 +1,13 @@
+EZSSHC - TODO:
+-------------
+* [list] - Identify comment line when printing output. If comment is present print line to /dev/null and set i to 1. Otherwise set i to 1 and then print first matched string.
+- Status: pending
+- Public: Patch
+
+* [add] - Identify duplicate entries. Prevent appending duplicates
+- Status: pending
+- Public: Release
+
+* [del] - Try to find a efficient method to parse "exact" delete pattern. Example: con_a_name=qkom; con_b_name=qkom_www. When trying to delete "qkom" the connection "qkom_www" will be deleted, too.
+- Status: pending
+- Public: Patch

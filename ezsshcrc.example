@@ -1,0 +1,14 @@
+# ezsshc - crude little (ss)helper - configuration file
+#
+# !!! You have to create the real configuration file at ~/.ezsshcrc !!!
+#
+#EXAMPLE:
+#---------------------
+#con_example_name=example
+#con_example_ip=127.0.0.1
+#con_example_port=23
+#con_example_user=foo
+#con_example_id=/usr/home/bar/bar.key
+#
+# NOTE:
+# An entry _must_ be placed as the given specs - the connection name must match the con_*_ names
