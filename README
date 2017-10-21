@@ -7,7 +7,7 @@ SYNOPSIS
 		<l>   (list)		- list all '<connections>' in ~/.ezsshcrc.
 		<i>   (info)		- <connection>: verbose info.
 		<a>   (add)			- <name> <ip> <port> <usr> <id>: append connection.
-		<rm>  (del)			- <connection>: delete config entry.
+		<rm>  (del)	    - <connection>: delete config entry.
 		<b>   (backup)	- archive configuration (t_stamp=day).
 		<go>  (ssh)			- <connection>: connect to desired node.
 		<cp>  (copy)		- <connection> <input> <path>: copy via scp.
