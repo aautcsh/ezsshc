@@ -6,17 +6,17 @@ SYNOPSIS
 		Options:
 		<l>   (list)		- list all '<connections>' in ~/.ezsshcrc.
 		<i>   (info)		- <connection>: verbose info.
-		<a>   (add)			- <name> <ip> <port> <usr> <id>: append connection.
-		<rm>  (del)	    - <connection>: delete config entry.
-		<b>   (backup)	- archive configuration (t_stamp=day).
-		<go>  (ssh)			- <connection>: connect to desired node.
+		<a>   (add)		- <name> <ip> <port> <usr> <id>: append connection.
+		<rm>  (del)	    	- <connection>: delete config entry.
+		<b>   (backup)		- archive configuration (t_stamp=day).
+		<go>  (ssh)		- <connection>: connect to desired node.
 		<cp>  (copy)		- <connection> <input> <path>: copy via scp.
 		<h>   (help)		- print this screen.
 
 	make	<option>
 		Options:
-		<i>		(install)	- Installs ezsshc to /usr/sbin/ezsshc
-		<c>		(clean) 	- Flushes the configuration
+		<i>	(install)	- Installs ezsshc to /usr/sbin/ezsshc
+		<c>	(clean) 	- Flushes the configuration
 
 DESCRIPTION
 	ezsshc helps you to connect to you favourite ssh connection. The essential config file ~/.ezsshcrc is the place you define your connections. 
